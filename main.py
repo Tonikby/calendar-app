@@ -1,7 +1,12 @@
-import calendar
+from flask import Flask
 
-y = int(input("Y: "))
-m = int(input("M: "))
+app = Flask(__name__)
 
-print(calendar.month(y,m))
+@app.route("/")
+def index():
+    return "Congratulations, it's a web app!"
 
+#import calendar
+#y = int(input("Y: "))
+#m = int(input("M: "))
+#print(calendar.month(y,m))
