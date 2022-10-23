@@ -1,10 +1,18 @@
 from flask import Flask
+from flask import request
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "Congratulations, it's a web app!"
+    celsius = request.args.get("celsius", "")
+    return (
+        """<form action="" method="get">
+                <input type="text" name="celsius">
+                <input type="submit" value="Convert">
+            </form>"""
+        + celsius
+    )
 
 @app.route("/<int:celsius>")
 def fahrenheit_from(celsius):
@@ -15,7 +23,7 @@ def fahrenheit_from(celsius):
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8080, debug=True)
-
+    
 #import calendar
 #y = int(input("Y: "))
 #m = int(input("M: "))
