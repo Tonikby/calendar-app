@@ -26,7 +26,7 @@ def fahrenheit_from(celsius):
         fahrenheit = round(fahrenheit, 3)  # Round to three decimal places
         return str(fahrenheit)
     except ValueError:
-        return "invalid input
+        return "invalid input"
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8080, debug=True)
